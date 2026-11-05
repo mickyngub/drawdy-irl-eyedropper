@@ -1,0 +1,58 @@
+@import "tailwindcss" source(none);
+@source "../webview";
+@source "../src/webview-shell.ts";
+
+@theme inline {
+    --font-sans: "Google Sans Flex Variable", "Google Sans Flex", ui-sans-serif, system-ui, sans-serif;
+    --font-mono: var(--dd-font-mono, "DM Mono", ui-monospace, monospace);
+
+    --color-panel: var(--dd-surface-panel, #1f1f23);
+    --color-section: var(--dd-surface-section, #27272a);
+    --color-elevated: var(--dd-surface-elevated, #27272a);
+    --color-fg: var(--dd-text-primary, rgb(255 255 255 / 0.95));
+    --color-fg-muted: var(--dd-text-secondary, rgb(255 255 255 / 0.7));
+    --color-fg-subtle: var(--dd-text-tertiary, rgb(255 255 255 / 0.5));
+    --color-fg-disabled: var(--dd-text-disabled, rgb(255 255 255 / 0.3));
+    --color-line-subtle: var(--dd-border-subtle, rgb(255 255 255 / 0.02));
+    --color-line: var(--dd-border-medium, rgb(255 255 255 / 0.08));
+    --color-line-strong: var(--dd-border-strong, rgb(255 255 255 / 0.12));
+    --color-divider: var(--dd-divider, rgb(255 255 255 / 0.06));
+    --color-subtle: var(--dd-interaction-subtle, rgb(255 255 255 / 0.04));
+    --color-hover: var(--dd-interaction-hover, rgb(255 255 255 / 0.08));
+    --color-pressed: var(--dd-interaction-pressed, rgb(255 255 255 / 0.02));
+    --color-active: var(--dd-interaction-active, rgb(255 255 255 / 0.04));
+    --color-disabled: var(--dd-interaction-disabled, rgb(255 255 255 / 0.02));
+    --color-control: var(--dd-control-surface, rgb(255 255 255 / 0.12));
+    --color-control-subtle: var(--dd-control-surface-subtle, rgb(255 255 255 / 0.06));
+    --color-accent: var(--dd-accent, #c5f601);
+    --color-accent-hover: var(--dd-accent-hover, #d4ff2e);
+    --color-accent-pressed: var(--dd-accent-pressed, #b3e000);
+    --color-accent-subtle: var(--dd-accent-subtle, rgb(179 224 0 / 0.1));
+    --color-accent-text: var(--dd-accent-text, #e1ff6d);
+    --color-on-accent: var(--dd-on-accent, #090909);
+    --color-danger: var(--dd-status-danger, #fb3748);
+    --color-danger-subtle: var(--dd-status-danger-subtle, rgb(251 55 72 / 0.2));
+    --color-success: var(--dd-status-success, #53c683);
+    --color-warning: var(--dd-status-warning, #eab308);
+    --color-ring: var(--drawdy-ring, #c5f601);
+
+    --text-caption: 11px;
+    --text-caption--line-height: 16px;
+    --text-body: 12px;
+    --text-body--line-height: 18px;
+    --text-label: 12px;
+    --text-label--line-height: 16px;
+    --text-label--font-weight: 500;
+    --text-label-md: 13px;
+    --text-label-md--line-height: 20px;
+    --text-label-md--font-weight: 500;
+    --text-heading: 14px;
+    --text-heading--line-height: 20px;
+    --text-heading--font-weight: 600;
+
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 10px;
+    --radius-2xl: 12px;
+}

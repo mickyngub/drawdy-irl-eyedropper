@@ -1,0 +1,35 @@
+{
+    "name": "drawdy-irl-eyedropper",
+    "version": "1.0.0",
+    "description": "IRL Eyedropper for Drawdy: pick colours from real life with your webcam and use them on the board.",
+    "license": "MIT",
+    "private": true,
+    "type": "module",
+    "packageManager": "pnpm@10.33.0",
+    "scripts": {
+        "css": "node scripts/build-css.mjs",
+        "dev": "node scripts/dev.mjs",
+        "build": "node scripts/build-css.mjs && node build.ts",
+        "test": "tsx --test test/*.test.ts",
+        "typecheck": "tsc --noEmit",
+        "preflight": "node scripts/preflight.mjs"
+    },
+    "devDependencies": {
+        "@drawdy/driver-protocol": "file:../../drawdy/packages/drawdy-driver-protocol",
+        "@rollup/plugin-typescript": "^12.1.2",
+        "@tailwindcss/cli": "4.3.3",
+        "@types/node": "^24",
+        "fflate": "^0.8.2",
+        "rollup": "^4.34.0",
+        "tailwindcss": "4.3.3",
+        "tslib": "^2.8.1",
+        "tsx": "^4.20.0",
+        "typescript": "^5",
+        "vite": "^8.2.1"
+    },
+    "pnpm": {
+        "onlyBuiltDependencies": [
+            "esbuild"
+        ]
+    }
+}

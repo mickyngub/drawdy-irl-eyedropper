@@ -1,0 +1,14 @@
+{
+    "driverId": "mickyngub.irl-eyedropper",
+    "driverName": "IRL Eyedropper",
+    "driverVersion": "1.0.0",
+    "description": "Pick colours from real life. Hold a leaf, a fabric scrap or a paint chip up to your webcam, tap it in the preview and the colour becomes your pen colour, lands in your swatches and can paint selected shapes. Set white with a sheet of paper so lamps and screens don't tint the result, then add your swatches to the board as a labelled palette. Made for designers, illustrators and moodboard makers.",
+    "icon": "icon.png",
+    "main": "main.js",
+    "permissions": [
+        "dom",
+        "scene",
+        "webcam",
+        "storage"
+    ]
+}
