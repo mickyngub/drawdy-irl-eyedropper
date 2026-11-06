@@ -73,6 +73,7 @@ const NEEDS_BOARD_PERMISSION =
 const NOT_PAINTED = "Couldn't paint the selection. Try again.";
 const NOT_ADDED = "The board couldn't take the palette. Try again.";
 const NO_REPLY = "The board didn't answer. Try again.";
+const TOO_DARK = "Too dark for white. Try more light.";
 
 const painted = (count: number): string =>
     count === 1 ? "Painted 1 item" : `Painted ${count} items`;
@@ -94,7 +95,6 @@ const loupeHex = byId<HTMLSpanElement>("loupe-hex");
 const loupeName = byId<HTMLSpanElement>("loupe-name");
 const setWhiteButton = byId<HTMLButtonElement>("set-white");
 const resetWhiteButton = byId<HTMLButtonElement>("reset-white");
-const tooDarkEl = byId<HTMLParagraphElement>("too-dark");
 const swatchesEl = byId<HTMLDivElement>("swatches");
 const swatchesEmpty = byId<HTMLParagraphElement>("swatches-empty");
 const clearButton = byId<HTMLButtonElement>("clear");
@@ -132,12 +132,15 @@ const post = (message: WebviewToDriver): void => api.postMessage(message);
 
 const clamp01 = (value: number): number => Math.min(1, Math.max(0, value));
 
+function clearStatus(): void {
+    clearTimeout(statusTimer);
+    statusEl.textContent = "";
+}
+
 function showStatus(text: string): void {
     clearTimeout(statusTimer);
     statusEl.textContent = text;
-    statusTimer = setTimeout(() => {
-        statusEl.textContent = "";
-    }, STATUS_MS);
+    statusTimer = setTimeout(clearStatus, STATUS_MS);
 }
 
 function updateButtons(): void {
@@ -260,18 +263,21 @@ function pick(): void {
 function setWhite(): void {
     if (state !== "live") return;
     const { linear } = sampleAt(reticle, false);
-    const dark = tooDarkForWhite(linear);
-    tooDarkEl.hidden = !dark;
-    if (dark) return;
+    if (tooDarkForWhite(linear)) {
+        showStatus(TOO_DARK);
+        return;
+    }
+    if (statusEl.textContent === TOO_DARK) clearStatus();
     gains = whiteGains(linear);
     panel.dataset.white = "set";
     updateLoupe();
+    resetWhiteButton.focus();
 }
 
 function resetWhite(): void {
     gains = undefined;
     panel.dataset.white = "unset";
-    tooDarkEl.hidden = true;
+    if (statusEl.textContent === TOO_DARK) clearStatus();
     updateLoupe();
     setWhiteButton.focus();
 }

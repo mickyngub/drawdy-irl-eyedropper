@@ -31,22 +31,13 @@ const BODY = `
             </div>
             <div class="flex items-center gap-3">
                 <div id="loupe" class="size-10 shrink-0 rounded-lg bg-[var(--loupe,var(--color-section))] ring-1 ring-line-strong"></div>
-                <div class="flex min-w-0 flex-col">
+                <div class="flex min-w-0 flex-1 flex-col">
                     <span id="loupe-hex" class="font-mono text-label text-fg"></span>
                     <span id="loupe-name" class="truncate text-body text-fg-subtle"></span>
                 </div>
+                <button type="button" id="set-white" class="${SECONDARY} shrink-0 group-data-[white=set]/panel:hidden" title="Hold white paper under the ring, then set white" disabled>Set white</button>
+                <span class="hidden shrink-0 items-center gap-2 text-label text-fg-subtle group-data-[white=set]/panel:inline-flex">White set<button type="button" id="reset-white" class="${TEXT_ACTION}">Reset</button></span>
             </div>
-        </section>
-        <section class="${SECTION}">
-            <div class="${LABEL_ROW}">
-                <span>White balance</span>
-                <span class="hidden items-center gap-2 text-fg-subtle group-data-[white=set]/panel:inline-flex">White set<button type="button" id="reset-white" class="${TEXT_ACTION}">Reset</button></span>
-            </div>
-            <div class="flex items-center gap-3">
-                <p class="min-w-0 flex-1 text-body text-fg-subtle">Hold white paper under the ring, then set white.</p>
-                <button type="button" id="set-white" class="${SECONDARY} shrink-0" disabled>Set white</button>
-            </div>
-            <p id="too-dark" class="rounded-lg bg-warning/15 px-3 py-2 text-body text-fg" hidden>Too dark for white. Try more light.</p>
         </section>
         <section class="${SECTION}">
             <div class="${LABEL_ROW}">
